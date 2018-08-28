@@ -1,25 +1,5 @@
-
 body{
   background-color: #D3D3D3;
-}
-
-.container{
-  font-size: 25;
-  font-style: italic;
-  font-variant:small-caps;
-}
-
-.intro{
-  font-size: 20;
-  font-style: italic;
-}
-
-.link1{
-  font-size: 5;
-}
-
-container-fluid{
-  width: 100%;
 }
 
 ul {
@@ -34,15 +14,6 @@ li {
   float: left;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-}
-
 li a {
   display: block;
   color: white;
@@ -50,7 +21,6 @@ li a {
   padding: 16px 16px;
   text-decoration: none;
 }
-
 
 .active {
   background-color: blue;

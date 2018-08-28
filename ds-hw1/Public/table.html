@@ -1,56 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <style>
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: 	#000FFF;
-  }
+  <head>
+    <meta charset="utf-8">
 
-  li {
-    float: left;
-  }
-
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px 16px;
-    text-decoration: none;
-  }
-
-
-  .active {
-    background-color: #FF0000;
-    color: white;
-  }
-  </style>
-  <title>table.html</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/table.css">
 </head>
-<body>
 
-<div class="text-center">
-  <h1>Table Page</h1>
-</div>
+<body>
 
 <div>
   <ul>
-    <li><a href="home.html">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="table.html">Table</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li style="float:right"><a class="active" href="#about">About</a></li>
   </ul>
 </div>
 
+<div class ="container-fluid">
+  <div class="text-center">
+    <h2>Dunder Mifflin Employees</h2>
+      <img src="..\Static/img/office.jpg" height = "150" width="150">
+  </div>
+</div>
 
+<div class="container-fluid" id ="chart">
+<table style="width 100%">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>
+        Position
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Michael</td>
+      <td>Scott</td>
+      <td>bossman@dmuff.com</td>
+      <td>655-212-9090</td>
+      <td>BOSS</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Dwight</td>
+      <td>Schrute</td>
+      <td>dmoney@dmuff.com</td>
+      <td>655-212-0001</td>
+      <td>Assistant to the Regional Manager</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Jim</td>
+      <td>Halpert</td>
+      <td>jhalp@dmuff.com</td>
+      <td>655-212-9090</td>
+      <td>Sales</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Oscar</td>
+      <td>Martinez</td>
+      <td>omart@dmuff.com</td>
+      <td>655-212-3090</td>
+      <td>Accounting</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Creed</td>
+      <td>Bratton</td>
+      <td>cb420@dmuff.com</td>
+      <td>655-212-1004</td>
+      <td>Quality Control</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Stanley</td>
+      <td>Hudson</td>
+      <td>huds@dmuff.com</td>
+      <td>655-212-2001</td>
+      <td>Sales</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 </body>
