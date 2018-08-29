@@ -66,7 +66,23 @@ div {
     padding: 20px;
 }
 
+.link-color:hover {
+    color: orange;
+    border-color: #E4491C;
+    text-decoration: none;
+}
+
+.link2-color:hover {
+    color: purple;
+    text-decoration: none;
+}
+
 .active {
   background-color: blue;
   color: white;
+}
+
+.active:hover{
+  color: pink;
+  text-decoration: none;
 }
