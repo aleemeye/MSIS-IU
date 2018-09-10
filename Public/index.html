@@ -38,7 +38,7 @@
           </div>
           <div class="col">
             <h2>Days Remaining</h2>
-            <div class="ban">{{project.days_left}}</div>
+            <div class="ban">{{ days_left}}</div>
           </div>
         </div>
       </section>
@@ -51,13 +51,13 @@
     <div class="row">
       <section class="col">
         <h2>Spent:</h2>
-        <div class="ban">{{pretty_currency(spent)}}</div>
+        <div class="ban">{{pretty_currency(project.spent)}}</div>
 
         <h2>Budget:</h2>
-        <div class="ban">{{pretty_currency(budget)}}</div>
+        <div class="ban">{{pretty_currency(project.budget)}}</div>
 
         <h2>Projected Spend:</h2>
-        <div class="ban">{{pretty_currency(projected_spend)}}</div>
+        <div class="ban">{{pretty_currency(project.projected_spend)}}</div>
       </section>
       <div class="col placeholder" style="height:200px">
         Burndown chart goes here.
