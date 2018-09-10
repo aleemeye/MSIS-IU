@@ -68,12 +68,25 @@ tasks:[
 },
 
   computed:{
-    days_left: function() {target_date - today()}
+    days_left: function() {
+      return moment(this.target_date).diff(moment(), 'days')}
   },
+    pretty_target_date: function(){
+      return this.pretty_date(this.target_date)
+    },
 
   methods:{
     pretty_date: function(d){
       return moment(d).format('l')
+    },
+    pretty_currency: function(val){
+      if (val < 1e3){
+        return '$' + val
+      }
+      if (val < 1e6){
+        return '$' + (val/1e3).toFixed(1) + 'k'
+      }
+      return '$' + (val/1e6).toFixed(1) + 'M'
     }
   }
 })
