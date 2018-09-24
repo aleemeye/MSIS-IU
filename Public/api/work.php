@@ -1,50 +1,12 @@
 <?php
+require '../../app/common.php';
+//get the taskID
+  //if set use value if not use 0
+$taskID = $_GET['taskID'] ?? 0;
 
-$foo = "bar";
-$bar = 'bit';
-$bit = 'baz';
+//fetch work from SQLiteDatabase
+  //static properties is the double colon
+$work =Work::findByTaskID($taskID);
 
-echo $foo;
-echo $bar
-echo $bit;
-
-class Animal {
-  $name='pig;'
-}
-
-$wilber = new Animal();
-echo swilber->name;
-
-$myVar = [
-  'first'=> 'Tom',
-  'last' => 'Gregory'
-];
-
-$people = [
-  '0'=> 'Tom',
-  '1' => 'Phil'
-];
-//trouble shooting
-var_dump($myArr);
-print_r($people);
-
-$n = 0;
-
-if (isset($_GET['id'])){
-  $n = $_GET['id']
-};
-
-$n = isset($_GET['id']) ? $_GET['id'] : 0;
-
-$n = $_GET['id'] ?? 0;
-
-/*
-if (){
-
-} else{
-
-};
-
-for ($i = 0; $i <5; $i++){
-
-};*/
+//convert to JSON and Print
+echo json_encode($work);
