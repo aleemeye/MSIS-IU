@@ -24,7 +24,7 @@
 
   <div id="chart" class="container-fluid">
 
-    <h1>Project Name {{project.name}}</h1>
+    <h1>{{project.name}}</h1>
     <div class="row">
       <div class="col placeholder">
         Completion %
@@ -68,55 +68,30 @@
     </div>
     <!--end row 2, charts -->
     <div class="row">
-      <table class="table table-striped table-sm">
+      <table id="task" class="table table-striped table-sm table-hover">
         <thead>
           <tr>
-            <th>
-              Task
-            </th>
-            <th>
-              Size
-            </th>
-            <th>
-              Team Name
-            </th>
-            <th>
-              Status
-            </th>
-            <th>
-              Started
-            </th>
-            <th>
-              Hrs
-            </th>
-            <th>
-              %Completed
-            </th>
+            <th>Task</th>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Team Name</th>
+            <th>Status</th>
+            <th>Started</th>
+            <th>Hrs</th>
+            <th>%Completed</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="task in tasks">
-            <td>
-              {{task.title}}
-            </td>
-            <td>
-              {{task.size}}
-            </td>
-            <td>
-              {{task.team}}
-            </td>
-            <td>
-              {{task.status}}
-            </td>
-            <td>
-              {{task.start_date}}
-            </td>
-            <td>
-              {{task.hours_worked}}
-            </td>
-            <td>
-              {{task.perc_complete}}
-            </td>
+          <tr v-for="task in tasks"
+              @click="gotoTask(task.id)">
+            <td>{{task.title}} </td>
+            <td>{{task.type}}</td>
+            <td>{{task.size}}</td>
+            <td>{{task.team}}</td>
+            <td>{{task.status}}</td>
+            <td>{{task.start_date}}</td>
+            <td>{{task.hours_worked}}</td>
+            <td>{{task.perc_complete}}</td>
           </tr>
         </tbody>
       </table>

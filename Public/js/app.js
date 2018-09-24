@@ -32,8 +32,7 @@ var dashboardApp = new Vue({
 
   computed:{
     days_left: function() {
-      return this.project.target_date ?
-        '0' : moment(this.project.target_date).diff(moment(), 'days')}
+      return moment(this.project.target_date).diff(moment(), 'days')}
     },
     pretty_target_date: function(){
       return this.pretty_date(this.project.target_date)
@@ -71,6 +70,18 @@ var dashboardApp = new Vue({
           console.log('FETCH ERROR');
           console.log(err);
         })
+      },
+      gotoTask(tid){
+        window.location = 'task.html?taskId' + tid;
+        const url = new URL(window.loaction.href);
+        const taskId = url.searchParams.get("tastId");
+
+        console.log('Task: ' + taskId);
+        if(!taskId){
+          //TODO:
+        }
+        //TODO:
+        this.fetchTask(taskId)
       }
     },
     created: function() {

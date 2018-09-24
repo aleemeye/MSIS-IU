@@ -24,6 +24,10 @@ section .ban {
   margin-top: 0;
 }
 
+#taskTable > tbody >tr {
+  cursor: pointer;
+}
+
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;
 }
