@@ -5,4 +5,5 @@ require '../../app/common.php';
 $team = Team ::findAll();
 
 //convert to JSON and Print
-echo json_encode($work); 
+header('Content-type: application/json');
+echo json_encode($work);
