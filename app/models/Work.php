@@ -1,16 +1,24 @@
 <?php
 
-class work{
+class Work{
   public $work_id;
   public $task_it;
   public $team_id;
   public $start_date;
   public $stop_date;
   public $hours;
+  public $complete_estimate;
 
   public function __contstruct($data){
+    $this->id = intval($row['id']);
 
-    //TODO
+    $this->task_id = intval($row['task_id']);
+    $this->team_id = intval($row['team_id']);
+
+    $this->start = intval($row['start']);
+    $this->hours = intval($row['hours']);
+
+    //calculate stop date
   }
 
   public static function findByTaskID($taskID){
@@ -20,10 +28,28 @@ class work{
 
     die;
     //2. prepare query
+    $sql = 'SELECT * FROM Work WHERE task_id = ?';
+
+    $statement = $db->prepare($sql);
 
     //3. execute
+    $success = $statement->execute(
+        [$taskID]
+      );
 
-    //4.
+    //4. Handle result
+    $arr = [];
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+      //4.a for each row, make a new work SplObjectStorage
+      $workItem = new Work($row);
+
+      array_push($arr, $workItem);
+
+      //4.b. return array 
+      return $arr;
+
+    }
   }
+
+
 }
- ?>
