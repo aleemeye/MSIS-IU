@@ -10,7 +10,7 @@ class Work{
   public $complete_estimate;
 
   public function __contstruct($data){
-    $this->id = intval($row['id']);
+    $this->id = intval($row['id']) ? intval($row['id']) : null;
 
     $this->task_id = intval($row['task_id']);
     $this->team_id = intval($row['team_id']);
@@ -19,6 +19,27 @@ class Work{
     $this->hours = intval($row['hours']);
 
     //calculate stop date
+  }
+
+  public function create() {
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+
+    //2. prepare query
+    $sql = 'INSERT INTO Work(task_id, team_id, start_date, hours, completion_estimate) VALUES (?, ?, ?, ?, ?)';
+
+    $statement = $db->prepare($sql);
+
+    //3. execute
+    $success = $statement->execute([
+      $this->task_id,
+      $this->team_id,
+      $this->start,
+      $this->hours,
+      $this->completion_estimate
+    ]);
+
+    $this->id = $db->lastInsertID();
+      
   }
 
   public static function findByTaskID($taskID){
@@ -45,7 +66,7 @@ class Work{
 
       array_push($arr, $workItem);
 
-      //4.b. return array 
+      //4.b. return array
       return $arr;
 
     }
