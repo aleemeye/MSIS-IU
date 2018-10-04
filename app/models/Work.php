@@ -27,8 +27,8 @@ class Work
 
   public function create() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    $sql = 'INSERT INTO Work (id, task_id, team_id, start_date, hours, completion_estimate)
-            VALUES (?, ?, ?, ?, ?, ?)';
+    $sql = 'INSERT INTO Work (task_id, team_id, start_date, hours, completion_estimate)
+            VALUES (?, ?, ?, ?, ?)';
 
     $statement = $db->prepare($sql);
     $success = $statement->execute([
@@ -38,9 +38,9 @@ class Work
       $this->hours,
       $this->completion_estimate
     ]);
-    if (!$success){
+    /*if (!$success){
       die('SQL ERROR');
-    }
+    }*/
     $this->id = $db->lastInsertId();
   }
 
