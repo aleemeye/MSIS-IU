@@ -20,7 +20,7 @@ class Work
     $interval = 'PT'. ($hours ? $hours.'H' : '') . ($mins ? $mins.'M' : '');
 
     $date = new DateTime($this->start);
-    $date->add(new DateInterval($interval));
+    //$date->add(new DateInterval($interval));
     $this->stop = $date->format('Y-m-d H:i:s');
     $this->completion_estimate = intval($row['completion_estimate']);
   }
@@ -38,8 +38,12 @@ class Work
       $this->hours,
       $this->completion_estimate
     ]);
+    if (!$success){
+      die('SQL ERROR');
+    }
     $this->id = $db->lastInsertId();
   }
+
   public static function getWorkByTaskId(int $taskId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
