@@ -1,39 +1,30 @@
 <?php
-
-class Team{
+class Team
+{
   public $id;
   public $name;
+  public $hourly_rate;
 
-  public function __contstruct($row){
-    $this->id = intval($row['id']);
-
-    $this->task_id = intval($row['name']);
+  public function __construct($data) {
+    $this->id = intval($data['id']);
+    $this->name = $data['name'];
+    $this->hourly_rate = floatval($data['hourly_rate']);
   }
-
-
-  public static function findAll($id){
-    //1. get database connection
-    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
   
-    //2. prepare query
-    $sql = 'SELECT * FROM Team';
-
+  public static function fetchAll() {
+    // 1. Connect to the database
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+    // 2. Prepare the query
+    $sql = 'SELECT * FROM Teams';
     $statement = $db->prepare($sql);
-
-    //3. execute
+    // 3. Run the query
     $success = $statement->execute();
-
-    //4. Handle result
+    // 4. Handle the results
     $arr = [];
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
-      //4.a for each row, make a new work SplObjectStorage
-      $theTeam = new Team($row);
-
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $theTeam =  new Team($row);
       array_push($arr, $theTeam);
-
-      //4.b. return array
-      return $arr;
-
-
     }
+    return $arr;
   }
+}
