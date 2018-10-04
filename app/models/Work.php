@@ -45,9 +45,7 @@ class Work{
   public static function findByTaskID($taskID){
     //1. get database connection
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    var_dump($db);
-
-    die;
+    
     //2. prepare query
     $sql = 'SELECT * FROM Work WHERE task_id = ?';
 

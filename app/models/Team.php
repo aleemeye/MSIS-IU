@@ -14,9 +14,7 @@ class Team{
   public static function findAll($id){
     //1. get database connection
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    var_dump($db);
-
-    die;
+  
     //2. prepare query
     $sql = 'SELECT * FROM Team';
 
