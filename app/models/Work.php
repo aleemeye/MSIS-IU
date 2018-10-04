@@ -9,7 +9,7 @@ class Work{
   public $hours;
   public $complete_estimate;
 
-  public function __contstruct($data){
+  public function __contstruct($row){
     $this->id = intval($row['id']) ? intval($row['id']) : null;
 
     $this->task_id = intval($row['task_id']);
@@ -39,7 +39,7 @@ class Work{
     ]);
 
     $this->id = $db->lastInsertID();
-      
+
   }
 
   public static function findByTaskID($taskID){

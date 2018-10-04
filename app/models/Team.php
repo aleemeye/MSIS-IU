@@ -4,7 +4,7 @@ class Team{
   public $id;
   public $name;
 
-  public function __contstruct($data){
+  public function __contstruct($row){
     $this->id = intval($row['id']);
 
     $this->task_id = intval($row['name']);
@@ -36,6 +36,6 @@ class Team{
       //4.b. return array
       return $arr;
 
-      
+
     }
   }
