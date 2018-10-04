@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $taskId = intval($_GET['taskId'] ?? 0);
 
-if ($taskId < 1) {
+/*if ($taskId < 1) {
   throw new Exception('Invalid Task ID');
-}
+}*/
 // 1. Go to the database and get all work associated with the $taskId
 $workArr = Work::getWorkByTaskId($taskId);
 // 2. Convert to JSON
