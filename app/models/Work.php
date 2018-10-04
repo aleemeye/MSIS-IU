@@ -38,9 +38,9 @@ class Work
       $this->hours,
       $this->completion_estimate
     ]);
-    /*if (!$success){
+    if (!$success){
       die('SQL ERROR');
-    }*/
+    }
     $this->id = $db->lastInsertId();
   }
 
