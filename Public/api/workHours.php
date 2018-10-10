@@ -10,7 +10,7 @@ if ($projectId < 1) {
 }
 
 // 1. Go to the database and get all work associated with the $taskId
-$workArr = WorkHoursReport::getWorkByProjectId($projectId);
+$workArr = WorkHoursReport::fetchByProjectId($projectId);
 // 2. Convert to JSON
 $json = json_encode($workArr, JSON_PRETTY_PRINT);
 // 3. Print
